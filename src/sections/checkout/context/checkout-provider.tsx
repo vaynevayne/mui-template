@@ -1,15 +1,15 @@
 import uniq from 'lodash/uniq';
-import { useEffect, useMemo, useCallback } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 // hooks
 import { useLocalStorage } from 'src/hooks/use-local-storage';
 // routes
-import { paths } from 'src/routes/paths';
 import { useRouter } from 'src/routes/hook';
+import { paths } from 'src/routes/paths';
 // _mock
 import { PRODUCT_CHECKOUT_STEPS } from 'src/_mock/_product';
 // types
 import { IAddressItem } from 'src/types/address';
-import { ICheckoutValue, ICheckoutItem } from 'src/types/checkout';
+import { ICheckoutItem, ICheckoutValue } from 'src/types/checkout';
 //
 import { CheckoutContext } from './checkout-context';
 
@@ -48,10 +48,7 @@ export function CheckoutProvider({ children }: Props) {
   );
 
   const onGetCart = useCallback(() => {
-    const totalItems: number = values.items.reduce(
-      (total: number, item: ICheckoutItem) => total + item.quantity,
-      0
-    );
+    const totalItems: number = values.items.reduce((total: number, item: ICheckoutItem) => total + item.quantity, 0);
 
     const subTotal: number = values.items.reduce(
       (total: number, item: ICheckoutItem) => total + item.quantity * item.price,
@@ -65,14 +62,7 @@ export function CheckoutProvider({ children }: Props) {
     setValue('shipping', values.items.length ? values.shipping : 0);
     setValue('total', values.subTotal - values.discount + values.shipping);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [
-    values.items,
-    values.activeStep,
-    values.billing,
-    values.discount,
-    values.shipping,
-    values.subTotal,
-  ]);
+  }, [values.items, values.activeStep, values.billing, values.discount, values.shipping, values.subTotal]);
 
   useEffect(() => {
     onGetCart();

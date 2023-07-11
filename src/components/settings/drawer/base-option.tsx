@@ -1,7 +1,7 @@
 // @mui
-import { alpha } from '@mui/material/styles';
-import Stack from '@mui/material/Stack';
 import ButtonBase from '@mui/material/ButtonBase';
+import Stack from '@mui/material/Stack';
+import { alpha } from '@mui/material/styles';
 //
 import SvgColor from '../../svg-color';
 
@@ -33,9 +33,7 @@ export default function BaseOptions({ icons, options, value, onChange }: Props) 
                 bgcolor: 'background.paper',
                 boxShadow: (theme) =>
                   `-24px 8px 24px -4px ${alpha(
-                    theme.palette.mode === 'light'
-                      ? theme.palette.grey[500]
-                      : theme.palette.common.black,
+                    theme.palette.mode === 'light' ? theme.palette.grey[500] : theme.palette.common.black,
                     0.08
                   )}`,
               }),

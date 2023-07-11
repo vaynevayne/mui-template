@@ -1,13 +1,12 @@
-import { memo, forwardRef } from 'react';
+import { forwardRef, memo } from 'react';
 // @mui
 import Box from '@mui/material/Box';
-//
+
 import { StyledRootScrollbar, StyledScrollbar } from './styles';
-import { ScrollbarProps } from './types';
 
 // ----------------------------------------------------------------------
 
-const Scrollbar = forwardRef<HTMLDivElement, ScrollbarProps>(({ children, sx, ...other }, ref) => {
+const Scrollbar = forwardRef<HTMLDivElement, any>(({ children, sx, ...other }, ref) => {
   const userAgent = typeof navigator === 'undefined' ? 'SSR' : navigator.userAgent;
 
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(userAgent);

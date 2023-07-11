@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 // @mui
-import { useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
+import { useTheme } from '@mui/material/styles';
 //
 import { StyledLabel } from './styles';
 import { LabelProps } from './types';

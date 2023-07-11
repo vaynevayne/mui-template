@@ -1,10 +1,9 @@
-import { useEffect, useReducer, useCallback, useMemo } from 'react';
 import { Auth } from '@aws-amplify/auth';
+import { useCallback, useEffect, useMemo, useReducer } from 'react';
 // config
 import { AMPLIFY_API } from 'src/config-global';
 //
 import { AuthContext } from './auth-context';
-import { ActionMapType, AuthStateType, AuthUserType } from '../../types';
 
 // ----------------------------------------------------------------------
 
@@ -21,19 +20,19 @@ enum Types {
 
 type Payload = {
   [Types.INITIAL]: {
-    user: AuthUserType;
+    user: any;
   };
   [Types.LOGOUT]: undefined;
 };
 
-type Action = ActionMapType<Payload>[keyof ActionMapType<Payload>];
+type Action = any;
 
-const initialState: AuthStateType = {
+const initialState: any = {
   user: null,
   loading: true,
 };
 
-const reducer = (state: AuthStateType, action: Action) => {
+const reducer = (state: any, action: Action) => {
   if (action.type === Types.INITIAL) {
     return {
       loading: false,
@@ -117,20 +116,17 @@ export function AuthProvider({ children }: Props) {
   }, []);
 
   // REGISTER
-  const register = useCallback(
-    async (email: string, password: string, firstName: string, lastName: string) => {
-      await Auth.signUp({
-        username: email,
-        password,
-        attributes: {
-          email,
-          given_name: firstName,
-          family_name: lastName,
-        },
-      });
-    },
-    []
-  );
+  const register = useCallback(async (email: string, password: string, firstName: string, lastName: string) => {
+    await Auth.signUp({
+      username: email,
+      password,
+      attributes: {
+        email,
+        given_name: firstName,
+        family_name: lastName,
+      },
+    });
+  }, []);
 
   // CONFIRM REGISTER
   const confirmRegister = useCallback(async (email: string, code: string) => {

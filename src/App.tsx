@@ -1,49 +1,46 @@
 // i18n
-import "src/locales/i18n"
+import 'src/locales/i18n';
 
 // scroll bar
-import "simplebar-react/dist/simplebar.min.css"
+import 'simplebar-react/dist/simplebar.min.css';
 
 // lightbox
-import "yet-another-react-lightbox/plugins/captions.css"
-import "yet-another-react-lightbox/plugins/thumbnails.css"
-import "yet-another-react-lightbox/styles.css"
-
-// map
-import "mapbox-gl/dist/mapbox-gl.css"
+import 'yet-another-react-lightbox/plugins/captions.css';
+import 'yet-another-react-lightbox/plugins/thumbnails.css';
+import 'yet-another-react-lightbox/styles.css';
 
 // editor
-import "react-quill/dist/quill.snow.css"
+import 'react-quill/dist/quill.snow.css';
 
 // slick-carousel
-import "slick-carousel/slick/slick-theme.css"
-import "slick-carousel/slick/slick.css"
+import 'slick-carousel/slick/slick-theme.css';
+import 'slick-carousel/slick/slick.css';
 
 // lazy image
-import "react-lazy-load-image-component/src/effects/blur.css"
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 // ----------------------------------------------------------------------
 
 // @mui
-import {AdapterDateFns} from "@mui/x-date-pickers/AdapterDateFns"
-import {LocalizationProvider} from "@mui/x-date-pickers/LocalizationProvider"
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 // routes
-import Router from "src/routes/sections"
+import Router from 'src/routes/sections';
 // theme
-import ThemeProvider from "src/theme"
+import ThemeProvider from 'src/theme';
 // hooks
-import {useScrollToTop} from "src/hooks/use-scroll-to-top"
+import { useScrollToTop } from 'src/hooks/use-scroll-to-top';
 // components
-import MotionLazy from "src/components/animate/motion-lazy"
-import ProgressBar from "src/components/progress-bar"
-import {SettingsDrawer, SettingsProvider} from "src/components/settings"
-import SnackbarProvider from "src/components/snackbar/snackbar-provider"
+import MotionLazy from 'src/components/animate/motion-lazy';
+import ProgressBar from 'src/components/progress-bar';
+import { SettingsDrawer, SettingsProvider } from 'src/components/settings';
+import SnackbarProvider from 'src/components/snackbar/snackbar-provider';
 // sections
-import {CheckoutProvider} from "src/sections/checkout/context"
+import { CheckoutProvider } from 'src/sections/checkout/context';
 // auth
 // import { AuthProvider, AuthConsumer } from 'src/auth/context/jwt';
 // import { AuthProvider, AuthConsumer } from 'src/auth/context/auth0';
-import {AuthConsumer, AuthProvider} from "src/auth/context/amplify"
+import { AuthConsumer, AuthProvider } from 'src/auth/context/amplify';
 // import { AuthProvider, AuthConsumer } from 'src/auth/context/firebase';
 
 // ----------------------------------------------------------------------
@@ -57,22 +54,22 @@ export default function App() {
   ▓▓  ▓▓  ▓▓ 
   ██      ██ 
   
-  `
+  `;
 
-  console.info(`%c${charAt}`, "color: #5BE49B")
+  console.info(`%c${charAt}`, 'color: #5BE49B');
 
-  useScrollToTop()
+  useScrollToTop();
 
   return (
     <AuthProvider>
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <SettingsProvider
           defaultSettings={{
-            themeMode: "light", // 'light' | 'dark'
-            themeDirection: "ltr", //  'rtl' | 'ltr'
-            themeContrast: "default", // 'default' | 'bold'
-            themeLayout: "vertical", // 'vertical' | 'horizontal' | 'mini'
-            themeColorPresets: "default", // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
+            themeMode: 'light', // 'light' | 'dark'
+            themeDirection: 'ltr', //  'rtl' | 'ltr'
+            themeContrast: 'default', // 'default' | 'bold'
+            themeLayout: 'vertical', // 'vertical' | 'horizontal' | 'mini'
+            themeColorPresets: 'default', // 'default' | 'cyan' | 'purple' | 'blue' | 'orange' | 'red'
             themeStretch: false,
           }}
         >
@@ -92,5 +89,5 @@ export default function App() {
         </SettingsProvider>
       </LocalizationProvider>
     </AuthProvider>
-  )
+  );
 }

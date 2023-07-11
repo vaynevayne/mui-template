@@ -1,11 +1,11 @@
 import { m } from 'framer-motion';
 // @mui
-import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
-import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
+import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import { alpha } from '@mui/material/styles';
 // components
 import { MotionViewport, varFade } from 'src/components/animate';
 
@@ -88,12 +88,7 @@ export default function HomeMinimal() {
                 }),
               }}
             >
-              <Box
-                component="img"
-                src={card.icon}
-                alt={card.title}
-                sx={{ mx: 'auto', width: 48, height: 48 }}
-              />
+              <Box component="img" src={card.icon} alt={card.title} sx={{ mx: 'auto', width: 48, height: 48 }} />
 
               <Typography variant="h5" sx={{ mt: 8, mb: 2 }}>
                 {card.title}
